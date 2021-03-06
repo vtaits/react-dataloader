@@ -1,0 +1,9 @@
+node_modules
+*.log
+lib
+es
+ts
+.idea/
+
+# Repository is using Yarn
+package-lock.json

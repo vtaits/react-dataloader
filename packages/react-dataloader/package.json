@@ -1,0 +1,29 @@
+{
+  "name": "@vtaits/react-dataloader",
+  "version": "0.1.0",
+  "description": "Data loader for react applications",
+  "main": "lib/index.js",
+  "repository": "https://github.com/vtaits/react-dataloader",
+  "author": "Vadim Taits <taizvadim@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf lib es ts",
+    "build": "yarn build:cjs && yarn build:es && yarn build:ts",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel --extensions '.ts,.tsx' src --out-dir lib --ignore \"src/**/__tests__\",\"src/**/__stories__\",\"src/**/__fixtures__\"",
+    "build:es": "cross-env BABEL_ENV=es babel --extensions '.ts,.tsx' src --out-dir es --ignore \"src/**/__tests__\",\"src/**/__stories__\",\"src/**/__fixtures__\"",
+    "build:ts": "tsc --declaration",
+    "test:ts": "tsc -p ./tsconfig.validate.json --noEmit",
+    "lint": "eslint src --ext .ts,.tsx --ignore-path ../../.gitignore",
+    "test:unit": "jest",
+    "test": "yarn test:unit",
+    "prepare": "yarn clean && yarn build"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.13.9",
+    "react-async-hook": "^3.6.2"
+  },
+  "devDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
